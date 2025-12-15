@@ -1,0 +1,472 @@
+/* ==========================================================================
+   1. IMPORTAÇÃO DE FONTES (Sempre no topo)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
+/* ==========================================================================
+   2. ONTOLOGIA CSS - VARIÁVEIS GLOBAIS
+   ========================================================================== */
+:root {
+    /* Backgrounds */
+    --bg-core: #03002e;        /* Azul Profundo */
+    --bg-black: #000000;       /* Preto Absoluto */
+    --bg-secondary: #080536;   /* Variação */
+    --bg-login: #010423;       /* Login */
+    
+    /* Textos */
+    --text-primary: #ffffff;
+    --text-muted: #cccccc;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-display: 'Roboto', sans-serif;
+
+    /* Neon Colors */
+    --neon-orange: #d85c27;
+    --neon-purple: #8e44ad;
+    --neon-gold: #f1c40f;
+    --neon-grey: #4a5a75;
+    --neon-cyan: #1abc9c;
+    --neon-blue: #004e92;
+    --neon-red: #dc3545;
+
+    /* Specific Colors */
+    --input-beige: #EBDBC6;
+    --btn-royal-blue: #4F67E7;
+}
+
+/* ==========================================================================
+   3. RESET GLOBAL E BASE
+   ========================================================================== */
+* { box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+body { 
+    background-color: var(--bg-core);
+    
+    /* SOLUÇÃO: Empurra todo o conteúdo para baixo */
+    /* 110px é a altura aproximada do seu menu (Logo + Padding + Bordas) + um respiro */
+    padding-top: 110px; 
+}
+
+img { display: block; max-width: 100%; }
+.spacer { height: 140px; }
+.cursor-pointer { cursor: pointer; }
+
+/* ==========================================================================
+   4. NAVBAR (CABEÇALHO PADRÃO)
+   ========================================================================== */
+.main-navbar {
+    background-color: var(--bg-black);
+    border-bottom: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    padding: 15px 0;
+}
+
+.brand-box {
+    padding: 5px 20px; 
+    border-radius: 4px; 
+    display: flex; align-items: center;
+}
+.brand-box img {
+    height: 60px; /* Logo Grande */
+    width: auto; object-fit: contain;
+}
+
+/* Barra de Pesquisa Grande */
+.search-wrapper { 
+    position: relative; display: flex; justify-content: center;
+}
+.search-input {
+    border-radius: 50px; border: 2px solid transparent; 
+    padding: 10px 50px 10px 20px;
+    background: linear-gradient(to bottom, #fff, #e6e6e6); 
+    width: 600px; /* Grande no PC */
+    font-size: 1rem; font-weight: bold; color: #333;
+    transition: all 0.3s ease;
+}
+.search-input:focus {
+    width: 620px; outline: none;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); border-color: #4da6ff;
+}
+.search-btn {
+    position: absolute; right: 15px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; color: #4da6ff; font-size: 1.2rem;
+}
+
+/* Links do Menu */
+.link-item {
+    color: white !important; text-decoration: none; 
+    font-weight: bold; text-transform: uppercase;
+    position: relative; padding: 10px;
+}
+.link-item:hover { 
+    color: var(--neon-blue) !important; 
+    text-shadow: 0 0 8px rgba(77, 166, 255, 0.6);
+}
+
+/* Menu Dropdown */
+.dropdown-menu {
+    background-color: var(--bg-black);
+    border: 1px solid #333; border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+    margin-top: 0; padding: 10px 0;
+}
+.dropdown-item {
+    color: white !important; font-weight: bold; text-transform: uppercase;
+    font-size: 0.9rem; padding: 10px 20px; transition: all 0.2s ease;
+}
+.dropdown-item:hover {
+    background-color: var(--neon-blue); padding-left: 25px;
+}
+@media (min-width: 992px) {
+    .custom-dropdown:hover .dropdown-menu {
+        display: block; animation: fadeIn 0.3s ease;
+    }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.dropdown-toggle::after { vertical-align: middle; margin-left: 5px; }
+
+
+/* ==========================================================================
+   5. COMPONENTES GERAIS (Cards, Banner, Neons)
+   ========================================================================== */
+
+/* Banner Hero */
+.hero-wrapper {
+    position: relative; max-width: 1000px; border-radius: 15px;
+    overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.fade-mask-hero {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 5;
+    box-shadow: inset 0 0 80px 50px var(--bg-core);
+}
+.carousel-item img { height: 450px; object-fit: cover; }
+
+/* Títulos */
+.section-title { text-align: center; font-weight: 800; text-transform: uppercase; margin-bottom: 30px; }
+.subsection-title { font-weight: 800; border-left: 5px solid var(--neon-gold); padding-left: 10px; }
+
+/* --- PADRONIZAÇÃO DOS CARDS (HOME E CATEGORIAS) --- */
+.movie-card {
+    background-color: transparent !important; /* Sem fundo branco */
+    border: none !important;
+    transition: transform 0.3s ease;
+}
+.movie-card a {
+    text-decoration: none; color: white !important; /* Links brancos */
+}
+
+/* O Retângulo da Imagem */
+.poster-placeholder {
+    background-color: transparent;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+    /* Força aspecto de poster para ficar igual */
+    aspect-ratio: 2/3; 
+}
+.poster-placeholder img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* O Título Embaixo */
+.card-title {
+    color: white; font-size: 1rem; font-weight: bold; margin-top: 10px;
+    text-transform: uppercase; transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Efeitos Hover */
+.movie-card:hover .poster-placeholder {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+.movie-card:hover .card-title {
+    color: #cccccc !important;
+    transform: translateY(-5px) scale(1.1);
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/* Categorias Neon */
+.neon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+.neon-btn {
+    display: block; text-align: center; padding: 15px; border-radius: 50px;
+    background-color: rgba(0,0,0,0.3); color: white; text-decoration: none;
+    font-weight: 800; text-transform: uppercase; border: 3px solid transparent; transition: 0.3s;
+}
+.neon-btn:hover { color: white; filter: brightness(1.3); }
+
+.acao { border-color: var(--neon-orange); box-shadow: inset 0 0 15px var(--neon-orange), 0 0 10px var(--neon-orange); }
+.romance { border-color: var(--neon-purple); box-shadow: inset 0 0 15px var(--neon-purple), 0 0 10px var(--neon-purple); }
+.comedia { border-color: var(--neon-gold); box-shadow: inset 0 0 15px var(--neon-gold), 0 0 10px var(--neon-gold); }
+.terror { border-color: var(--neon-grey); box-shadow: inset 0 0 15px var(--neon-grey), 0 0 10px var(--neon-grey); }
+.ficcao { border-color: var(--neon-cyan); box-shadow: inset 0 0 15px var(--neon-cyan), 0 0 10px var(--neon-cyan); }
+.fantasia { border-color: var(--neon-blue); box-shadow: inset 0 0 15px var(--neon-blue), 0 0 10px var(--neon-blue); }
+
+
+/* ==========================================================================
+   6. PÁGINAS ESPECÍFICAS (Categorias, Detalhes, Login, Perfil)
+   ========================================================================== */
+
+/* Categorias */
+body.page-category { background: linear-gradient(180deg, #020024 0%, #000045 100%); }
+.main-content { margin-top: 100px; }
+.category-badge {
+    background-color: #020024; color: white; font-size: 1.5rem; font-weight: bold;
+    padding: 10px 60px; border-radius: 50px; text-transform: uppercase;
+    border: 2px solid white; box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+.badge-acao { border-color: #ff6600; box-shadow: 0 0 15px rgba(255, 102, 0, 0.5); }
+.badge-comedia { border-color: #e2c471; box-shadow: 0 0 15px rgb(255, 251, 0); }
+.badge-romance { border-color: #eca7fd; box-shadow: 0 0 15px rgb(255, 3, 242); }
+.badge-terror { border-color: #848280; box-shadow: 0 0 15px rgb(84, 84, 75); }
+.badge-ficcao { border-color: #a9f6d7; box-shadow: 0 0 15px rgb(0, 255, 234); }
+.badge-fantasia { border-color: #0089a2; box-shadow: 0 0 15px rgb(0, 166, 255); }
+
+/* Detalhes Filme */
+body.page-movie { background: radial-gradient(circle at top center, #1a1a40 0%, #050510 100%); font-family: 'Roboto', sans-serif; }
+.text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+.movie-banner {
+    min-height: 350px; width: 100%; background-size: cover; background-position: center; background-repeat: no-repeat;
+    background-color: #000; box-shadow: 0 4px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.banner-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(5, 5, 16, 0) 0%, rgba(5, 5, 16, 0.1) 40%, rgba(5, 5, 16, 0.9) 90%, #050510 100%);
+    pointer-events: none;
+}
+.rating-badge {
+    min-width: 80px; height: 80px; border: 2px solid rgba(255,255,255,0.1);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+.rating-badge .rating-icon { font-size: 24px; color: #fff; display: block; }
+.favorite-badge { border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.2s; }
+.favorite-badge:hover { border-color: var(--neon-red); color: var(--neon-red); }
+.favorite-badge.active { background-color: rgba(220, 53, 69, 0.2); border-color: var(--neon-red); color: var(--neon-red); }
+.action-btn { transition: transform 0.2s, color 0.2s; }
+.action-btn:hover { color: var(--neon-gold); transform: scale(1.1); }
+.user-rating i { cursor: pointer; transition: color 0.2s; }
+.user-rating i:hover, .user-rating i.active { color: var(--neon-gold); font-weight: 900; }
+.poster-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85); z-index: 10000;
+    justify-content: center; align-items: center; backdrop-filter: blur(5px);
+}
+.poster-overlay.active { display: flex !important; }
+.poster-content-box {
+    width: auto; height: 85vh; aspect-ratio: 9/16;
+    border-radius: 8px; overflow: hidden; background: #000;
+    animation: zoomIn 0.3s ease;
+}
+.poster-content-box img { width: 100%; height: 100%; object-fit: cover; }
+@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* Login */
+body.page-login { background-color: var(--bg-login); font-family: 'Roboto', sans-serif; }
+.login-bg { background-color: var(--bg-login); } 
+.main-title { font-weight: 900; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+.star-center { color: #5DD0F6; filter: drop-shadow(0 0 5px #5DD0F6); }
+.star-side { color: var(--bg-login); stroke: #5DD0F6; stroke-width: 15px; -webkit-text-stroke: 2px #5DD0F6; font-size: 1.5rem; }
+.central-area { width: 100%; max-width: 1200px; position: relative; }
+.char-container { height: 550px; display: flex; align-items: flex-end; z-index: 1; }
+.char-container img { max-height: 100%; width: auto; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); }
+.vader-container { margin-right: -20px; }
+.harry-container { margin-left: -20px; }
+.login-box-black {
+    background-color: var(--bg-black); border-radius: 30px; width: 100%; max-width: 480px;
+    border: 3px solid rgba(255,255,255,0.05);
+}
+.beige-input {
+    background-color: var(--input-beige) !important; border: none; border-radius: 15px; padding: 15px 20px;
+    font-weight: 700; color: #5a4a42; font-size: 1.1rem;
+}
+.beige-input::placeholder { color: #7c6a5e; opacity: 1; }
+.blue-button {
+    background-color: var(--btn-royal-blue); border: none; border-radius: 15px; padding: 15px;
+    font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; transition: 0.3s;
+}
+.blue-button:hover { background-color: #3b54d4; color: #fff; }
+
+/* Perfil */
+body.page-profile { background-color: #00031a; }
+.banner-perfil { height: 200px; width: 100%; }
+.profile-pic-container { width: 180px; height: 180px; margin-top: -90px; position: relative; z-index: 10; }
+.profile-pic-container img { background-color: #ccc; object-fit: cover; width: 100%; height: 100%; }
+.stats-box {
+    background-color: #0b112b; border: 1px solid #333; padding: 10px 15px; min-width: 100px; text-align: center;
+    border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+.stats-box .small { font-size: 0.7rem; color: #aaa; }
+.card-filme {
+    min-width: 200px; height: 300px; background-color: white; flex-shrink: 0; transition: transform 0.2s; cursor: pointer;
+}
+.card-filme:hover { transform: scale(1.05); }
+
+/* ==========================================================================
+   7. RODAPÉ
+   ========================================================================== */
+.main-footer {
+    background-color: var(--bg-black); color: white; border-top: 5px solid #333; margin-top: 50px;
+}
+.badge-gradient {
+    background: linear-gradient(90deg, #b30000 0%, #000066 100%);
+    padding: 8px 25px; border-radius: 8px; font-weight: 800; text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0,0,255,0.5); display: inline-block;
+}
+.star-footer { color: var(--neon-gold); font-size: 3rem; text-shadow: 0 0 15px var(--neon-gold), 2px 2px 0px #000; }
+.footer-divider { border-color: #555; opacity: 1; border-width: 3px; }
+.logo-white-box {
+    background-color: white; border-radius: 30px; padding: 40px 20px;
+    width: 100%; max-width: 500px; margin: 0 auto; position: relative; z-index: 2;
+}
+
+
+
+/* ==========================================================================
+   8. PÁGINA PROMOCIONAL (LOGIN / FAVORITOS)
+   ========================================================================== */
+
+/* Define as cores apenas para o escopo desta página */
+body.page-favorites-promo {
+    --bg-fav-main: #141842;   /* Azul escuro específico desta página */
+    --btn-fav-blue: #4d79ff;  /* Azul vibrante do botão */
+    
+    background-color: var(--bg-fav-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden; /* Importante para as imagens flutuantes */
+}
+
+/* Seção Principal Centralizada */
+.page-favorites-promo .main-section {
+    background-color: var(--bg-fav-main);
+    min-height: calc(100vh - 160px);
+    padding: 60px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* O Card Branco Central */
+.page-favorites-promo .card-login {
+    position: relative;
+    z-index: 10;
+    background-color: #ffffff;
+    color: #333; /* Força texto escuro dentro do card */
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Textos dentro do Card (Garante cor escura) */
+.page-favorites-promo .card-login h2,
+.page-favorites-promo .card-login h3,
+.page-favorites-promo .card-login p {
+    color: #212529 !important; 
+}
+
+/* Botão de Login Específico */
+.page-favorites-promo .btn-login {
+    background-color: var(--btn-fav-blue);
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    font-size: 1.5rem;
+    transition: transform 0.2s, background-color 0.2s;
+    color: white;
+}
+
+.page-favorites-promo .btn-login:hover {
+    background-color: #3b60db;
+    transform: scale(1.02);
+}
+
+/* --- ELEMENTOS FLUTUANTES (Decoração) --- */
+.decoracao {
+    position: absolute;
+    z-index: 20; 
+    pointer-events: none;
+}
+
+/* 1. Pipoca (Topo Esquerdo) */
+.pipoca {
+    top: -60px;
+    left: -80px;
+    width: 180px;
+    transform: rotate(-10deg);
+}
+
+/* 2. Óculos 3D (Baixo Direito) */
+.oculos {
+    bottom: -40px;
+    right: -60px;
+    width: 160px;
+    transform: rotate(15deg);
+}
+
+/* 3. Mãozinha (Ao lado do "Garanta seu lugar") */
+.mao {
+    left: -70px;
+    top: 5px;
+    width: 60px;
+}
+
+/* 4. Ticket (No título) */
+.img-ticket {
+    width: 50px;
+    transform: rotate(10deg);
+    display: inline-block;
+}
+
+/* --- RESPONSIVIDADE ESPECÍFICA DESTA PÁGINA --- */
+@media (max-width: 768px) {
+    .pipoca {
+        width: 100px;
+        top: -40px;
+        left: -20px;
+    }
+    
+    .oculos {
+        width: 100px;
+        bottom: -20px;
+        right: -10px;
+    }
+
+    .mao {
+        display: none; /* Esconde no mobile */
+    }
+
+    .page-favorites-promo .card-login {
+        padding: 2rem !important;
+    }
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   9. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 991px) {
+    .search-input { width: 100%; }
+    .search-wrapper { width: 100%; margin: 10px 0; }
+    
+    .carousel-item img { height: 250px; }
+    .logo-white-box { padding: 20px; }
+    
+    .banner-perfil { height: 150px; }
+    .profile-pic-container { width: 140px; height: 140px; margin-top: -70px; }
+    .stats-box { min-width: 70px; padding: 5px; font-size: 0.9rem; }
+}

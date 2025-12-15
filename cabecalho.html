@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg fixed-top main-navbar">
+    <div class="container position-relative">
+        
+        <a class="brand-box navbar-brand" href="index.html">
+            <img src="img/logopopok.png" alt="Logo Site"> 
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="menuPrincipal">
+            
+            <div class="d-flex flex-column flex-lg-row align-items-center w-100 justify-content-between mt-3 mt-lg-0">
+                
+                <div class="nav-center mx-auto">
+                    <div class="search-wrapper mb-2 mb-lg-0">
+                        <input type="text" class="search-input" id="campoPesquisa" placeholder="Pesquisar...">
+                        <button class="search-btn" id="btnPesquisar"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    
+                    <ul class="navbar-nav nav-links gap-3 align-items-center">
+                        <li class="nav-item"><a href="index.html" class="link-item active">INÍCIO</a></li>
+                        
+                        <li class="nav-item dropdown custom-dropdown">
+                            <a class="nav-link link-item dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                                CATEGORIAS
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="acao.html">AÇÃO</a></li>
+                                <li><a class="dropdown-item" href="romance.html">ROMANCE</a></li>
+                                <li><a class="dropdown-item" href="comedia.html">COMÉDIA</a></li>
+                                <li><a class="dropdown-item" href="terror.html">TERROR</a></li>
+                                <li><a class="dropdown-item" href="ficcao.html">FICÇÃO CIENTÍFICA</a></li>
+                                <li><a class="dropdown-item" href="fantasia.html">FANTASIA</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-right d-flex gap-3 mt-3 mt-lg-0">
+                    <div class="icon-group fav-group text-center">
+                        <span class="icon-label d-block text-warning small fw-bold">FAVORITOS</span>
+                          <a href="favoritos.html"><i class="fa-solid fa-star icon-star text-warning fs-5"></i></a>
+                    </div>
+                    <div class="icon-group login-group d-flex align-items-center gap-2">
+                        <span class="icon-label text-end text-white small fw-bold lh-1"><a href="cadastro.html" class="text-white text-decoration-none">ENTRAR</a> OU<br><a href="cadastro.html" class="text-white text-decoration-none">FAZER LOGIN</a></span>
+                        <a href="perfil.html"><i class="fa-solid fa-circle-user icon-user fs-2 text-primary bg-white rounded-circle"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nav>

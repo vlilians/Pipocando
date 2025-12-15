@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Filme - Interestelar</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-movie">
+<div id="header-container"></div>
+  
+
+    <section class="container mt-4">
+        <div class="movie-banner rounded position-relative" style="background-image: url('https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg');">
+            <div class="banner-overlay"></div>
+            
+            <div class="position-absolute bottom-0 start-0 p-4 z-2">
+                <h2 class="fw-bold text-uppercase text-shadow d-none d-md-block">Interestelar</h2>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content flex-grow-1 py-5">
+        <div class="container">
+            <div class="row g-4">
+                
+                <div class="col-md-4 col-lg-3">
+                    <div class="poster-wrapper text-center">
+                        <div class="poster-container position-relative">
+                            <img src="img/interestelar.jpg" alt="Poster Interestelar"
+                                class="img-fluid rounded shadow-lg w-100 cursor-pointer poster-click"
+                                onclick="abrirZoom(this.src)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-lg-6">
+                    <h1 class="h2 fw-bold mb-1">Interestelar</h1>
+
+                    <div class="movie-meta small mb-3 text-light opacity-75">
+                        <span>6 de Novembro de 2014</span> | <span>2h 49min Aventura, Drama</span><br>
+                        <strong>Direção:</strong> Christopher Nolan | <strong>Roteiro:</strong> Jonathan Nolan, Christopher Nolan<br>
+                        <strong>Elenco:</strong> Matthew McConaughey, Anne Hathaway, Jessica Chastain...<br>
+                        <span class="fst-italic">Título original: Interstellar</span>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="rating-badge bg-primary rounded p-2 text-center text-white">
+                            <i class="fas fa-pen-fancy mb-1"></i>
+                            <div class="fw-bold h4 m-0">73%</div>
+                            <small>Críticos</small>
+                        </div>
+
+                        <div class="rating-badge bg-danger rounded p-2 text-center text-white">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="mb-1" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.5 11C4.5 11 3.5 11 3.5 10C3.5 9 4.5 8 4.5 8C4.5 8 4 7 5 7C6 7 6 8 6 8C6 8 7 7 8 7C9 7 9 8 9 8C9 8 10 7 11 7C12 7 12 8 12 8C12 8 13 7 14 7C15 7 15 8 15 8C15 8 16 7 17 7C18 7 18 8 18 8C18 8 19 9 19 10C19 11 18 11 18 11V20C18 21.1 17.1 22 16 22H7C5.89 22 5 21.1 5 20V11H4.5ZM7 11V20H9V11H7ZM11 11V20H13V11H11ZM15 11V20H17V11H15Z" />
+                                <circle cx="5" cy="6" r="1.5" /><circle cx="9" cy="5" r="1.5" /><circle cx="13" cy="5" r="1.5" /><circle cx="17" cy="6" r="1.5" />
+                            </svg>
+                            <div class="fw-bold h4 m-0">86%</div>
+                            <small>Usuários</small>
+                        </div>
+
+                        <div class="rating-badge favorite-badge d-flex flex-column align-items-center justify-content-center p-2 rounded cursor-pointer"
+                            onclick="toggleFavorite(this)">
+                            <i class="far fa-heart fa-2x mb-1 transition-icon"></i>
+                            <small class="fw-bold mt-1">Favoritar</small>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 user-rating">
+                        <i class="far fa-star fa-lg"></i>
+                        <i class="far fa-star fa-lg"></i>
+                        <i class="far fa-star fa-lg"></i>
+                        <i class="far fa-star fa-lg"></i>
+                        <i class="far fa-star fa-lg"></i>
+                        <button class="btn btn-primary btn-sm ms-2 px-4 rounded-pill">Avaliar</button>
+                    </div>
+
+                    <div class="synopsis mt-4">
+                        <h4 class="fw-bold">Sinopse</h4>
+                        <p>As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mt-4 mt-lg-0">
+                    <div class="d-flex flex-column gap-3 mb-4 align-items-center text-center">
+                        <div class="action-btn cursor-pointer" onclick="toggleAction(this)">
+                            <i class="far fa-eye fa-2x mb-1"></i>
+                            <small class="d-block">Marcar como assistido</small>
+                        </div>
+                        <div class="action-btn cursor-pointer" onclick="toggleAction(this)">
+                            <i class="fas fa-plus fa-2x mb-1"></i>
+                            <small class="d-block">Adicionar à Lista</small>
+                        </div>
+                    </div>
+
+                    <div class="streaming-box border border-secondary rounded overflow-hidden">
+                        <div class="bg-black p-3 d-flex justify-content-between align-items-center cursor-pointer"
+                            data-bs-toggle="collapse" data-bs-target="#ondeEncontrarCollapse">
+                            <span class="fw-bold">Onde encontrar?</span>
+                            <i class="fas fa-chevron-down transition-icon"></i>
+                        </div>
+                        <div class="collapse show" id="ondeEncontrarCollapse">
+                            <div class="bg-dark p-2 d-flex flex-column gap-2">
+                                <div class="stream-item bg-secondary bg-opacity-25 p-2 rounded d-flex align-items-center gap-3">
+                                    <img src="img/hbo.webp" height="20%" width="20%" alt="HBO Max" class="stream-logo">
+                                    <div class="lh-1">
+                                        <span class="d-block fw-bold">HBO Max</span>
+                                        <small class="text-light opacity-75">Assinatura</small>
+                                    </div>
+                                </div>
+                                <div class="stream-item bg-secondary bg-opacity-25 p-2 rounded d-flex align-items-center gap-3">
+                                    <img src="img/prime vide.png" height="20%" width="20%" alt="Amazon Prime" class="stream-logo">
+                                    <div class="lh-1">
+                                        <span class="d-block fw-bold">Amazon Prime</span>
+                                        <small class="text-light opacity-75">Aluguel</small>
+                                    </div>
+                                </div>
+                                <div class="stream-item bg-secondary bg-opacity-25 p-2 rounded d-flex align-items-center gap-3">
+                                    <img src="img/apple.png" height="20%" width="20%" alt="Apple TV" class="stream-logo">
+                                    <div class="lh-1">
+                                        <span class="d-block fw-bold">Apple TV</span>
+                                        <small class="text-light opacity-75">Aluguel</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="fw-bold text-uppercase mb-3">Trailer</h3>
+                    <div class="ratio ratio-16x9 trailer-box rounded overflow-hidden shadow">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/zSWdZVtXT7E?si=interstellar_trailer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="posterOverlay" class="poster-overlay" onclick="fecharZoom()">
+        <div class="poster-content-box" onclick="event.stopPropagation()">
+            <img id="imgZoom" src="" alt="Poster Grande">
+        </div>
+    </div>
+
+
+     <div id="footer-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

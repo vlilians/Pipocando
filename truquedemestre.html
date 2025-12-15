@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Filme - Truque de Mestre 3</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+
+<body class="page-movie">
+<div id="header-container"></div>
+   
+
+    <section class="container mt-4">
+        <div class="movie-banner rounded position-relative" style="background-image: url('img/truque1.png'); background-size: cover; background-position: center; height: 400px;">
+            <div class="banner-overlay" style="background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute;"></div>
+
+    
+        </div>
+    </section>
+
+    <main class="main-content flex-grow-1 py-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-md-4 col-lg-3">
+                    <div class="poster-wrapper text-center">
+                        <div class="poster-container position-relative">
+                            <img src="img/truque.png" alt="Poster Truque de Mestre"
+                                class="img-fluid rounded shadow-lg w-100 cursor-pointer poster-click"
+                                onclick="abrirZoom(this.src)" style="cursor: pointer;">
+                        </div>
+                        <button class="btn btn-dark w-100 mt-2 fw-bold action-btn">Avaliar</button>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-lg-6">
+                    <h1 class="h2 fw-bold mb-1">Truque de Mestre: O 3º Ato</h1>
+
+                    <div class="movie-meta small mb-3 text-light opacity-75">
+                        <span>13 de novembro de 2025</span> | <span>1h 53min | Aventura, Comédia, Suspense</span><br>
+                        <strong>Direção:</strong> Ruben Fleischer | <strong>Roteiro:</strong> Michael Lesslie<br>
+                        <strong>Elenco:</strong> Jesse Eisenberg, Woody Harrelson, Dave Franco...<br>
+                        <span class="fst-italic">Título original: Now You See Me: Now You Don't</span>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="rating-badge bg-primary rounded p-2 text-center text-white">
+                            <i class="fas fa-pen-fancy mb-1 rating-icon"></i>
+                            <div class="fw-bold h4 m-0">60%</div>
+                            <small>Críticos</small>
+                        </div>
+
+                        <div class="rating-badge bg-danger rounded p-2 text-center text-white">
+                            <i class="fas fa-user mb-1 rating-icon"></i>
+                            <div class="fw-bold h4 m-0">81%</div>
+                            <small>Usuários</small>
+                        </div>
+
+                        <div class="rating-badge favorite-badge d-flex flex-column align-items-center justify-content-center p-2 rounded cursor-pointer"
+                            onclick="toggleFavorite(this)" role="button">
+                            <i class="far fa-heart fa-2x mb-1 transition-icon"></i>
+                            <small class="fw-bold mt-1">Favoritar</small>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 user-rating">
+                        <i class="far fa-star fa-lg" role="button"></i>
+                        <i class="far fa-star fa-lg" role="button"></i>
+                        <i class="far fa-star fa-lg" role="button"></i>
+                        <i class="far fa-star fa-lg" role="button"></i>
+                        <i class="far fa-star fa-lg" role="button"></i>
+                        <button class="btn btn-primary btn-sm ms-2 px-4 rounded-pill">Avaliar</button>
+                    </div>
+
+                    <div class="synopsis mt-4">
+                        <h4 class="fw-bold">Sinopse</h4>
+                        <p>Em Truque de Mestre: O 3º Ato, os quatro cavaleiros, J. Daniel Atlas (Jesse Eisenberg), Merritt McKinney (Woody Harrelson), Dylan Rhodes (Mark Ruffalo) e Lula (Lizzy Caplan) retornam para mais uma aventura alucinante. Dessa vez, os ilusionistas serão desafiados em uma jornada que envolve a joia mais valiosa do mundo. Ao lado de uma nova geração de ilusionistas, o quarteto se envolve numa trama repleta de reviravoltas e mágicas. Diante de uma empresa corrupta, que lava dinheiro para diferentes criminosos, os dois grupos se reúnem para derrubar a família que controla a companhia.
+
+</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mt-4 mt-lg-0">
+                    <div class="d-flex flex-column gap-3 mb-4 align-items-center text-center">
+                        <div class="action-btn cursor-pointer" onclick="toggleAction(this)" role="button">
+                            <i class="far fa-eye fa-2x mb-1"></i>
+                            <small class="d-block">Marcar como assistido</small>
+                        </div>
+                        <div class="action-btn cursor-pointer" onclick="toggleAction(this)" role="button">
+                            <i class="fas fa-plus fa-2x mb-1"></i>
+                            <small class="d-block">Adicionar à Lista</small>
+                        </div>
+                    </div>
+
+                    <div class="streaming-box border border-secondary rounded overflow-hidden">
+                        <div class="bg-black p-3 d-flex justify-content-between align-items-center cursor-pointer"
+                            data-bs-toggle="collapse" data-bs-target="#ondeEncontrarCollapse">
+                            <span class="fw-bold">Onde encontrar?</span>
+                            <i class="fas fa-chevron-down transition-icon"></i>
+                        </div>
+                        <div class="collapse show" id="ondeEncontrarCollapse">
+                            <div class="bg-dark p-2 d-flex flex-column gap-2">
+                                <div class="stream-item bg-secondary bg-opacity-25 p-2 rounded d-flex align-items-center gap-3">
+                                    <img src="img/iconcine.png" height="30" width="30" alt="Icone Cinema" class="stream-logo">
+                                    <div class="lh-1">
+                                        <span class="d-block fw-bold small">SOMENTE NOS CINEMAS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="fw-bold text-uppercase mb-3">Trailer</h3>
+                    <div class="ratio ratio-16x9 trailer-box rounded overflow-hidden shadow">
+                        <iframe src="https://www.youtube.com/embed/u5-kEenjbtc?si=EnaY2I_sCqY3kLCv" title="Trailer" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+   
+
+    <div id="posterOverlay" class="poster-overlay" onclick="fecharZoom()" aria-hidden="true" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center;">
+        <div class="poster-content-box" onclick="event.stopPropagation()" style="max-width: 90%; max-height: 90%;">
+            <img id="imgZoom" src="" alt="Poster Grande" style="max-height: 90vh; width: auto; border-radius: 10px; box-shadow: 0 0 20px rgba(255,255,255,0.2);">
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

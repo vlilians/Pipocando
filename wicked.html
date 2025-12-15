@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Filme - Mad Max</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-movie">
+
+<div id="header-container"></div>
+
+
+
+
+
+    <section class="container mt-4">
+        <div class="movie-banner rounded position-relative" style="background-image: url('img/bannerwiked.png');">
+            <div class="banner-overlay"></div>
+
+            <div class="position-absolute bottom-0 start-0 p-4 z-2">
+                <h2 class="fw-bold text-uppercase text-shadow d-none d-md-block"></h2>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content flex-grow-1 py-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-md-4 col-lg-3">
+                    <div class="poster-wrapper text-center">
+                        <div class="poster-container position-relative">
+                            <img src="img/wicked.png" alt="Poster Mad Max"
+                                class="img-fluid rounded shadow-lg w-100 cursor-pointer poster-click"
+                                onclick="abrirZoom(this.src)">
+                        </div>
+                        <button class="btn btn-dark w-100 mt-2 fw-bold action-btn">Avaliar</button>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-lg-6">
+                    <h1 class="h2 fw-bold mb-1">Wicked 2</h1>
+
+                    <div class="movie-meta small mb-3 text-light opacity-75">
+                        <span>13 de novembro de 2025</span> | <span>2 h e 18 min | Aventura, Comédia, Suspense</span><br>
+                        <strong>Direção:</strong> Jon M. Chu | <strong>Roteiro:</strong> Winnie Holzman e Dana Fox<br>
+                        <strong>Elenco:</strong> Cynthia Erivo, Ariana Grande, Jonathan Bailey...<br>
+                        <span class="fst-italic">Título original:Wicked: For Good </span>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3 mb-3">
+
+                        <div class="rating-badge bg-primary rounded p-2 text-center text-white"
+                            aria-label="Nota dos Críticos">
+                            <i class="fas fa-pen-fancy mb-1 rating-icon" aria-hidden="true"></i>
+                            <div class="fw-bold h4 m-0">91%</div>
+                            <small>Críticos</small>
+                        </div>
+
+                        <div class="rating-badge bg-danger rounded p-2 text-center text-white"
+                            aria-label="Nota dos Usuários">
+                            <i class="fas fa-user mb-1 rating-icon" aria-hidden="true"></i>
+                            <div class="fw-bold h4 m-0">86%</div>
+                            <small>Usuários</small>
+                        </div>
+
+                        <div class="rating-badge favorite-badge d-flex flex-column align-items-center justify-content-center p-2 rounded cursor-pointer"
+                            onclick="toggleFavorite(this)" role="button" aria-pressed="false" aria-label="Favoritar">
+                            <i class="far fa-heart fa-2x mb-1 transition-icon"></i>
+                            <small class="fw-bold mt-1">Favoritar</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 user-rating">
+                        <i class="far fa-star fa-lg" role="button" aria-label="Avaliar 1 estrela"></i>
+                        <i class="far fa-star fa-lg" role="button" aria-label="Avaliar 2 estrelas"></i>
+                        <i class="far fa-star fa-lg" role="button" aria-label="Avaliar 3 estrelas"></i>
+                        <i class="far fa-star fa-lg" role="button" aria-label="Avaliar 4 estrelas"></i>
+                        <i class="far fa-star fa-lg" role="button" aria-label="Avaliar 5 estrelas"></i>
+                        <button class="btn btn-primary btn-sm ms-2 px-4 rounded-pill">Avaliar</button>
+                    </div>
+
+                    <div class="synopsis mt-4">
+                        <h4 class="fw-bold">Sinopse</h4>
+                        <p>O segundo filme cobrirá a jornada de Elphaba após seu rompimento com Glinda e sua transformação completa na Bruxa Má do Oeste. A trama mostrará a ascensão do Mágico ao poder e o impacto que suas ações têm sobre Oz, culminando na famosa aparição de Dorothy e na resolução do destino de Elphaba e Glinda.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mt-4 mt-lg-0">
+                    <div class="d-flex flex-column gap-3 mb-4 align-items-center text-center">
+                        <div class="action-btn cursor-pointer" onclick="toggleAction(this)" role="button">
+                            <i class="far fa-eye fa-2x mb-1"></i>
+                            <small class="d-block">Marcar como assistido</small>
+                        </div>
+                        <div class="action-btn cursor-pointer" onclick="toggleAction(this)" role="button">
+                            <i class="fas fa-plus fa-2x mb-1"></i>
+                            <small class="d-block">Adicionar à Lista</small>
+                        </div>
+                    </div>
+
+                    <div class="streaming-box border border-secondary rounded overflow-hidden">
+                        <div class="bg-black p-3 d-flex justify-content-between align-items-center cursor-pointer"
+                            data-bs-toggle="collapse" data-bs-target="#ondeEncontrarCollapse" aria-expanded="true">
+                            <span class="fw-bold">Onde encontrar?</span>
+                            <i class="fas fa-chevron-down transition-icon"></i>
+                        </div>
+                        <div class="collapse show" id="ondeEncontrarCollapse">
+                            <div class="bg-dark p-2 d-flex flex-column gap-2">
+                                <div
+                                    class="stream-item bg-secondary bg-opacity-25 p-2 rounded d-flex align-items-center gap-3">
+                                    <img src="img/iconcine.png" height="20%" width="20%" alt="HBO Max" class="stream-logo">
+                                    <div class="lh-1">
+                                        <span class="d-block fw-bold">SOMENTE NOS CINEMAS</span>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 class="fw-bold text-uppercase mb-3">Trailer</h3>
+                    <div class="ratio ratio-16x9 trailer-box rounded overflow-hidden shadow">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/_WmdlcyjAhk?si=eieHO5nnaiqG_0nf" title="Trailer do filme"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+   
+
+    <div id="posterOverlay" class="poster-overlay" onclick="fecharZoom()" aria-hidden="true">
+        <div class="poster-content-box" onclick="event.stopPropagation()">
+            <img id="imgZoom" src="" alt="Poster Grande">
+        </div>
+    </div>
+
+
+
+    <div id="footer-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
